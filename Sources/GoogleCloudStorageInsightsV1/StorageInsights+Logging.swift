@@ -23,44 +23,52 @@ import GoogleCloudWkt
 import GoogleLongrunning
 import GoogleRpc
 import GoogleCloudGax
+import struct Logging.Logger
 
 extension Clients {
-  final class StorageInsightsRetry: StorageInsightsStub {
+  final class StorageInsightsLogging: StorageInsightsStub {
     let inner: any StorageInsightsStub
-    let options: GoogleCloudGax.ClientOptions
+    let logger: Logger
 
-    public init(_ inner: any StorageInsightsStub, options: GoogleCloudGax.ClientOptions) {
+    public init(_ inner: any StorageInsightsStub, logger: Logger) {
+      var logger = logger
+      logger[metadataKey: "gcp.artifact.id"] = "google-cloud-storageinsights-v1"
+      logger[metadataKey: "gcp.client.service"] = "storageinsights"
+      logger[metadataKey: "gcp.experimental.swift.client"] = "StorageInsights"
       self.inner = inner
-      self.options = options
+      self.logger = logger
     }
 
     func _intercept<Input, Output>(
       request: Input,
       options: GoogleCloudGax.RequestOptions,
-      idempotent: Swift.Bool,
+      name: Swift.String,
       action: (Input, GoogleCloudGax.RequestOptions) async throws -> Output,
     ) async throws -> Output {
-      let loop = GoogleCloudGax._RetryLoop(
-        options: options, withDefault: self.options, idempotent: idempotent,
-      )
-      let attempt = { (attemptTimeout: Swift.Duration?) async throws -> Output in
-        var attemptOptions = options
-        attemptOptions.attemptTimeout = attemptTimeout
-        return try await action(request, attemptOptions)
+      var logger = logger
+      logger[metadataKey: "gcp.experimental.swift.request.id"] = "\(UUID())"
+      logger[metadataKey: "gcp.experimental.swift.method"] = .string(name)
+      logger.debug("enter  : \(request) \(options)")
+      do {
+        let output = try await action(request, options)
+        logger.debug("success: \(request) \(options) \(output)")
+        return output
+      } catch let error {
+        logger.debug("error  : \(request) \(options) \(error)")
+        throw error
       }
-      return try await loop.run(attempt: attempt)
     }
 
     public func listReportConfigs(
       request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listReportConfigs",
         action: {
           (r: ListReportConfigsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+            -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
           in
           return try await self.inner.listReportConfigs(request: r, options: o)
         })
@@ -68,14 +76,14 @@ extension Clients {
 
     public func getReportConfig(
       request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getReportConfig",
         action: {
           (r: GetReportConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ReportConfig
+            -> GoogleCloudStorageInsightsV1.ReportConfig
           in
           return try await self.inner.getReportConfig(request: r, options: o)
         })
@@ -83,14 +91,14 @@ extension Clients {
 
     public func createReportConfig(
       request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "createReportConfig",
         action: {
           (r: CreateReportConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ReportConfig
+            -> GoogleCloudStorageInsightsV1.ReportConfig
           in
           return try await self.inner.createReportConfig(request: r, options: o)
         })
@@ -98,14 +106,14 @@ extension Clients {
 
     public func updateReportConfig(
       request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "updateReportConfig",
         action: {
           (r: UpdateReportConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ReportConfig
+            -> GoogleCloudStorageInsightsV1.ReportConfig
           in
           return try await self.inner.updateReportConfig(request: r, options: o)
         })
@@ -117,7 +125,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "deleteReportConfig",
         action: {
           (r: DeleteReportConfigRequest, o: GoogleCloudGax.RequestOptions) async throws -> Void in
           return try await self.inner.deleteReportConfig(request: r, options: o)
@@ -126,14 +134,14 @@ extension Clients {
 
     public func listReportDetails(
       request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listReportDetails",
         action: {
           (r: ListReportDetailsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+            -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
           in
           return try await self.inner.listReportDetails(request: r, options: o)
         })
@@ -141,14 +149,14 @@ extension Clients {
 
     public func getReportDetail(
       request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getReportDetail",
         action: {
           (r: GetReportDetailRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ReportDetail
+            -> GoogleCloudStorageInsightsV1.ReportDetail
           in
           return try await self.inner.getReportDetail(request: r, options: o)
         })
@@ -156,14 +164,14 @@ extension Clients {
 
     public func listDatasetConfigs(
       request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listDatasetConfigs",
         action: {
           (r: ListDatasetConfigsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+            -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
           in
           return try await self.inner.listDatasetConfigs(request: r, options: o)
         })
@@ -171,14 +179,14 @@ extension Clients {
 
     public func getDatasetConfig(
       request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getDatasetConfig",
         action: {
           (r: GetDatasetConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudStorageinsightsV1.DatasetConfig
+            -> GoogleCloudStorageInsightsV1.DatasetConfig
           in
           return try await self.inner.getDatasetConfig(request: r, options: o)
         })
@@ -190,7 +198,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "createDatasetConfig",
         action: {
           (r: CreateDatasetConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -205,7 +213,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "updateDatasetConfig",
         action: {
           (r: UpdateDatasetConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -220,7 +228,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "deleteDatasetConfig",
         action: {
           (r: DeleteDatasetConfigRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -235,7 +243,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "linkDataset",
         action: {
           (r: LinkDatasetRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -250,7 +258,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "unlinkDataset",
         action: {
           (r: UnlinkDatasetRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -265,7 +273,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listLocations",
         action: {
           (r: GoogleCloudLocation.ListLocationsRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> GoogleCloudLocation.ListLocationsResponse
@@ -280,7 +288,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getLocation",
         action: {
           (r: GoogleCloudLocation.GetLocationRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleCloudLocation.Location
@@ -295,7 +303,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listOperations",
         action: {
           (r: GoogleLongrunning.ListOperationsRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> GoogleLongrunning.ListOperationsResponse
@@ -310,7 +318,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getOperation",
         action: {
           (r: GoogleLongrunning.GetOperationRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -325,7 +333,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "deleteOperation",
         action: {
           (r: GoogleLongrunning.DeleteOperationRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> Void in
@@ -339,7 +347,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "cancelOperation",
         action: {
           (r: GoogleLongrunning.CancelOperationRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> Void in

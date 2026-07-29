@@ -28,19 +28,19 @@ extension Clients {
   protocol StorageInsightsStub {
     func listReportConfigs(
       request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
 
     func getReportConfig(
       request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     func createReportConfig(
       request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     func updateReportConfig(
       request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     func deleteReportConfig(
       request: DeleteReportConfigRequest, options: GoogleCloudGax.RequestOptions
@@ -48,19 +48,19 @@ extension Clients {
 
     func listReportDetails(
       request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
 
     func getReportDetail(
       request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail
 
     func listDatasetConfigs(
       request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
 
     func getDatasetConfig(
       request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig
 
     func createDatasetConfig(
       request: CreateDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
@@ -117,7 +117,7 @@ extension Clients {
 
     public func listReportConfigs(
       request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -137,12 +137,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ListReportConfigsResponse.self, from: data)
+        GoogleCloudStorageInsightsV1.ListReportConfigsResponse.self, from: data)
     }
 
     public func getReportConfig(
       request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -157,12 +157,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ReportConfig.self, from: data)
+        GoogleCloudStorageInsightsV1.ReportConfig.self, from: data)
     }
 
     public func createReportConfig(
       request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -183,12 +183,12 @@ extension Clients {
       }
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ReportConfig.self, from: data)
+        GoogleCloudStorageInsightsV1.ReportConfig.self, from: data)
     }
 
     public func updateReportConfig(
       request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.reportConfig.map({ $0.name }), !pathVariable0.isEmpty
         else {
@@ -212,7 +212,7 @@ extension Clients {
       }
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ReportConfig.self, from: data)
+        GoogleCloudStorageInsightsV1.ReportConfig.self, from: data)
     }
 
     public func deleteReportConfig(
@@ -238,7 +238,7 @@ extension Clients {
 
     public func listReportDetails(
       request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -258,12 +258,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ListReportDetailsResponse.self, from: data)
+        GoogleCloudStorageInsightsV1.ListReportDetailsResponse.self, from: data)
     }
 
     public func getReportDetail(
       request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail {
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -278,12 +278,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ReportDetail.self, from: data)
+        GoogleCloudStorageInsightsV1.ReportDetail.self, from: data)
     }
 
     public func listDatasetConfigs(
       request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse {
+    ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -303,12 +303,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse.self, from: data)
+        GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse.self, from: data)
     }
 
     public func getDatasetConfig(
       request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig {
+    ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -323,7 +323,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudStorageinsightsV1.DatasetConfig.self, from: data)
+        GoogleCloudStorageInsightsV1.DatasetConfig.self, from: data)
     }
 
     public func createDatasetConfig(

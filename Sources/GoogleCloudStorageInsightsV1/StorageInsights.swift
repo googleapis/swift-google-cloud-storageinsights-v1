@@ -45,7 +45,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_ListReportConfigs")
   public func listReportConfigs(
     request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse {
     try await self.inner.listReportConfigs(request: request, options: options)
   }
 
@@ -56,7 +56,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
     byItem: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ReportConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
       in
       var request = byItem
       request.pageToken = token
@@ -70,7 +70,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_GetReportConfig")
   public func getReportConfig(
     request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     try await self.inner.getReportConfig(request: request, options: options)
   }
 
@@ -79,7 +79,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_CreateReportConfig")
   public func createReportConfig(
     request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     try await self.inner.createReportConfig(request: request, options: options)
   }
 
@@ -88,7 +88,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_UpdateReportConfig")
   public func updateReportConfig(
     request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     try await self.inner.updateReportConfig(request: request, options: options)
   }
 
@@ -106,7 +106,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_ListReportDetails")
   public func listReportDetails(
     request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse {
     try await self.inner.listReportDetails(request: request, options: options)
   }
 
@@ -117,7 +117,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
     byItem: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ReportDetail, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
       in
       var request = byItem
       request.pageToken = token
@@ -131,7 +131,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_GetReportDetail")
   public func getReportDetail(
     request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail {
     try await self.inner.getReportDetail(request: request, options: options)
   }
 
@@ -140,7 +140,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_ListDatasetConfigs")
   public func listDatasetConfigs(
     request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse {
     try await self.inner.listDatasetConfigs(request: request, options: options)
   }
 
@@ -151,7 +151,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
     byItem: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DatasetConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
       in
       var request = byItem
       request.pageToken = token
@@ -165,7 +165,7 @@ public class StorageInsightsClient: Clients.StorageInsightsProtocol {
   /// @Snippet(path: "StorageInsights_GetDatasetConfig")
   public func getDatasetConfig(
     request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig {
     try await self.inner.getDatasetConfig(request: request, options: options)
   }
 
@@ -575,7 +575,7 @@ extension Clients {
   public protocol StorageInsightsProtocol {
     /// See `StorageInsightsClient.listReportConfigs`.
     func listReportConfigs(request: ListReportConfigsRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+      -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
 
     /// See `StorageInsightsClient.listReportConfigs`.
     func listReportConfigs(
@@ -589,32 +589,32 @@ extension Clients {
 
     /// See `StorageInsightsClient.getReportConfig`.
     func getReportConfig(request: GetReportConfigRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ReportConfig
+      -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.getReportConfig`.
     func getReportConfig(
       name: Swift.String,
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.createReportConfig`.
     func createReportConfig(request: CreateReportConfigRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ReportConfig
+      -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.createReportConfig`.
     func createReportConfig(
       parent: Swift.String,
       reportConfig: ReportConfig?,
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.updateReportConfig`.
     func updateReportConfig(request: UpdateReportConfigRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ReportConfig
+      -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.updateReportConfig`.
     func updateReportConfig(
       reportConfig: ReportConfig?,
       updateMask: GoogleCloudWkt.FieldMask?,
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.deleteReportConfig`.
     func deleteReportConfig(request: DeleteReportConfigRequest) async throws
@@ -626,7 +626,7 @@ extension Clients {
 
     /// See `StorageInsightsClient.listReportDetails`.
     func listReportDetails(request: ListReportDetailsRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+      -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
 
     /// See `StorageInsightsClient.listReportDetails`.
     func listReportDetails(
@@ -640,16 +640,16 @@ extension Clients {
 
     /// See `StorageInsightsClient.getReportDetail`.
     func getReportDetail(request: GetReportDetailRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ReportDetail
+      -> GoogleCloudStorageInsightsV1.ReportDetail
 
     /// See `StorageInsightsClient.getReportDetail`.
     func getReportDetail(
       name: Swift.String,
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail
 
     /// See `StorageInsightsClient.listDatasetConfigs`.
     func listDatasetConfigs(request: ListDatasetConfigsRequest) async throws
-      -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+      -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
 
     /// See `StorageInsightsClient.listDatasetConfigs`.
     func listDatasetConfigs(
@@ -663,12 +663,12 @@ extension Clients {
 
     /// See `StorageInsightsClient.getDatasetConfig`.
     func getDatasetConfig(request: GetDatasetConfigRequest) async throws
-      -> GoogleCloudStorageinsightsV1.DatasetConfig
+      -> GoogleCloudStorageInsightsV1.DatasetConfig
 
     /// See `StorageInsightsClient.getDatasetConfig`.
     func getDatasetConfig(
       name: Swift.String,
-    ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig
 
     /// See `StorageInsightsClient.createDatasetConfig`.
     func createDatasetConfig(request: CreateDatasetConfigRequest) async throws
@@ -783,7 +783,7 @@ extension Clients {
     /// See `StorageInsightsClient.listReportConfigs`.
     func listReportConfigs(
       request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
 
     /// See `StorageInsightsClient.listReportConfigs`.
     func listReportConfigs(
@@ -793,17 +793,17 @@ extension Clients {
     /// See `StorageInsightsClient.getReportConfig`.
     func getReportConfig(
       request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.createReportConfig`.
     func createReportConfig(
       request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.updateReportConfig`.
     func updateReportConfig(
       request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig
 
     /// See `StorageInsightsClient.deleteReportConfig`.
     func deleteReportConfig(
@@ -813,7 +813,7 @@ extension Clients {
     /// See `StorageInsightsClient.listReportDetails`.
     func listReportDetails(
       request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
 
     /// See `StorageInsightsClient.listReportDetails`.
     func listReportDetails(
@@ -823,12 +823,12 @@ extension Clients {
     /// See `StorageInsightsClient.getReportDetail`.
     func getReportDetail(
       request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail
+    ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail
 
     /// See `StorageInsightsClient.listDatasetConfigs`.
     func listDatasetConfigs(
       request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+    ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
 
     /// See `StorageInsightsClient.listDatasetConfigs`.
     func listDatasetConfigs(
@@ -838,7 +838,7 @@ extension Clients {
     /// See `StorageInsightsClient.getDatasetConfig`.
     func getDatasetConfig(
       request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig
+    ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig
 
     /// See `StorageInsightsClient.createDatasetConfig`.
     func createDatasetConfig(
@@ -930,14 +930,14 @@ extension Clients {
 // Default implementations
 extension Clients.StorageInsightsProtocol {
   public func listReportConfigs(request: ListReportConfigsRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+    -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
   {
     try await self.listReportConfigs(request: request, options: .init())
   }
 
   public func listReportConfigs(
     request: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -951,7 +951,7 @@ extension Clients.StorageInsightsProtocol {
     byItem: ListReportConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ReportConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListReportConfigsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListReportConfigsResponse
       in
       throw GoogleCloudGax.RequestError.unimplemented
     }
@@ -968,20 +968,20 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func getReportConfig(request: GetReportConfigRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ReportConfig
+    -> GoogleCloudStorageInsightsV1.ReportConfig
   {
     try await self.getReportConfig(request: request, options: .init())
   }
 
   public func getReportConfig(
     request: GetReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getReportConfig(
     name: Swift.String,
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     let request = GetReportConfigRequest().with {
       $0.name = name
     }
@@ -989,21 +989,21 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func createReportConfig(request: CreateReportConfigRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ReportConfig
+    -> GoogleCloudStorageInsightsV1.ReportConfig
   {
     try await self.createReportConfig(request: request, options: .init())
   }
 
   public func createReportConfig(
     request: CreateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func createReportConfig(
     parent: Swift.String,
     reportConfig: ReportConfig?,
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     let request = CreateReportConfigRequest().with {
       $0.parent = parent
       $0.reportConfig = reportConfig
@@ -1012,21 +1012,21 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func updateReportConfig(request: UpdateReportConfigRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ReportConfig
+    -> GoogleCloudStorageInsightsV1.ReportConfig
   {
     try await self.updateReportConfig(request: request, options: .init())
   }
 
   public func updateReportConfig(
     request: UpdateReportConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func updateReportConfig(
     reportConfig: ReportConfig?,
     updateMask: GoogleCloudWkt.FieldMask?,
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportConfig {
     let request = UpdateReportConfigRequest().with {
       $0.reportConfig = reportConfig
       $0.updateMask = updateMask
@@ -1054,14 +1054,14 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func listReportDetails(request: ListReportDetailsRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+    -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
   {
     try await self.listReportDetails(request: request, options: .init())
   }
 
   public func listReportDetails(
     request: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -1075,7 +1075,7 @@ extension Clients.StorageInsightsProtocol {
     byItem: ListReportDetailsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<ReportDetail, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListReportDetailsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListReportDetailsResponse
       in
       throw GoogleCloudGax.RequestError.unimplemented
     }
@@ -1092,20 +1092,20 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func getReportDetail(request: GetReportDetailRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ReportDetail
+    -> GoogleCloudStorageInsightsV1.ReportDetail
   {
     try await self.getReportDetail(request: request, options: .init())
   }
 
   public func getReportDetail(
     request: GetReportDetailRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getReportDetail(
     name: Swift.String,
-  ) async throws -> GoogleCloudStorageinsightsV1.ReportDetail {
+  ) async throws -> GoogleCloudStorageInsightsV1.ReportDetail {
     let request = GetReportDetailRequest().with {
       $0.name = name
     }
@@ -1113,14 +1113,14 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func listDatasetConfigs(request: ListDatasetConfigsRequest) async throws
-    -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+    -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
   {
     try await self.listDatasetConfigs(request: request, options: .init())
   }
 
   public func listDatasetConfigs(
     request: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse {
+  ) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
@@ -1134,7 +1134,7 @@ extension Clients.StorageInsightsProtocol {
     byItem: ListDatasetConfigsRequest, options: GoogleCloudGax.RequestOptions
   ) throws -> any AsyncSequence<DatasetConfig, Swift.Error> {
     let listRpc = {
-      (token: Swift.String) async throws -> GoogleCloudStorageinsightsV1.ListDatasetConfigsResponse
+      (token: Swift.String) async throws -> GoogleCloudStorageInsightsV1.ListDatasetConfigsResponse
       in
       throw GoogleCloudGax.RequestError.unimplemented
     }
@@ -1151,20 +1151,20 @@ extension Clients.StorageInsightsProtocol {
   }
 
   public func getDatasetConfig(request: GetDatasetConfigRequest) async throws
-    -> GoogleCloudStorageinsightsV1.DatasetConfig
+    -> GoogleCloudStorageInsightsV1.DatasetConfig
   {
     try await self.getDatasetConfig(request: request, options: .init())
   }
 
   public func getDatasetConfig(
     request: GetDatasetConfigRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func getDatasetConfig(
     name: Swift.String,
-  ) async throws -> GoogleCloudStorageinsightsV1.DatasetConfig {
+  ) async throws -> GoogleCloudStorageInsightsV1.DatasetConfig {
     let request = GetDatasetConfigRequest().with {
       $0.name = name
     }
